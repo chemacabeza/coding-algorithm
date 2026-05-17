@@ -62,6 +62,28 @@ Sorting the array `[4, 10, 3, 5, 1]`:
 
 ---
 
+## Mathematical Foundation
+
+Heapsort is built upon the mathematical properties of a nearly complete binary tree. 
+
+A binary heap of $n$ elements can be represented as an array where the root is at index $1$ (or $0$ in 0-indexed arrays).
+The mathematical relationship between a node at index $i$ and its relatives in a 1-indexed array is strictly defined as:
+- $\text{Parent}(i) = \lfloor i/2 \rfloor$
+- $\text{LeftChild}(i) = 2i$
+- $\text{RightChild}(i) = 2i + 1$
+
+**Heap Property (Max-Heap Invariant):**
+For every node $i$ other than the root:
+$$ A[\text{Parent}(i)] \ge A[i] $$
+By induction, this guarantees that the maximum element is always at the root $A[1]$.
+
+**Height of the Tree:**
+Since a heap is a complete binary tree, its height $h$ is mathematically bounded by:
+$$ h = \lfloor \log_2 n \rfloor $$
+Because operations like `heapify` only traverse from root to leaf (or vice-versa) along a single path, the maximum number of swaps is bounded by the height $h$, giving the fundamental $O(\log n)$ bound for maintaining the heap property.
+
+---
+
 ## Complexity Analysis
 
 | Case | Time Complexity | Explanation |

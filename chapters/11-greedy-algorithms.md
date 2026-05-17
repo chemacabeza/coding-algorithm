@@ -65,6 +65,25 @@ Given these classes with start and end times:
 
 ---
 
+## Mathematical Foundation
+
+Greedy algorithms do not work for all optimization problems. Mathematically, a problem can be solved optimally with a greedy approach if and only if it exhibits two specific properties:
+
+1. **Greedy Choice Property:** A global optimum can be arrived at by selecting a local optimum. In a mathematical sense, there exists an optimal solution to the problem that contains the greedy choice.
+2. **Optimal Substructure:** An optimal solution to the problem contains optimal solutions to the subproblems.
+
+**Matroid Theory Foundation:**
+More rigorously, the problems perfectly solvable by greedy algorithms can be modeled as **Matroids**. 
+A matroid is an ordered pair $M = (S, I)$ where:
+- $S$ is a finite set.
+- $I$ is a non-empty family of subsets of $S$, called independent sets, such that if $B \in I$ and $A \subset B$, then $A \in I$ (hereditary property).
+- If $A \in I$, $B \in I$, and $|A| < |B|$, there is some element $x \in B - A$ such that $A \cup \{x\} \in I$ (exchange property).
+
+For example, in the **Activity Selection Problem**, we have a set of activities $S = \{a_1, a_2, \dots, a_n\}$.
+Assuming activities are sorted by finish time $f_1 \le f_2 \le \dots \le f_n$, the greedy choice property mathematically proves that there exists a maximum-size subset of mutually compatible activities that contains $a_1$.
+
+---
+
 ## Complexity Analysis
 
 | Metric | Complexity | Explanation |

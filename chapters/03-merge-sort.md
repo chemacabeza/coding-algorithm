@@ -55,6 +55,32 @@ Sorting `[38, 27, 43, 3, 9, 82, 10]`:
 
 ---
 
+## Mathematical Foundation
+
+Merge Sort's performance is mathematically analyzed through its divide-and-conquer recurrence relation.
+
+The time to sort an array of $n$ elements, $T(n)$, consists of:
+1. **Dividing** the array into two halves (constant time, $O(1)$)
+2. **Conquering** by recursively sorting the two halves ($2T(n/2)$)
+3. **Combining** the two sorted halves (linear time, $\Theta(n)$)
+
+**Recurrence Relation:**
+$$ T(n) = 2T(n/2) + \Theta(n) $$
+
+**Recursion Tree Method:**
+If we draw the recursion tree, each node at depth $d$ has size $n/2^d$. 
+- At depth $d$, there are $2^d$ nodes.
+- The merging cost per node is $c(n/2^d)$.
+- Total cost at depth $d$: $2^d \times c(n/2^d) = cn$.
+
+The tree stops growing when the subproblem size is $1$, which occurs at depth $d = \log_2 n$.
+Since there are $\log_2 n$ levels and each level costs $cn$ work:
+$$ T(n) = \sum_{i=0}^{\log_2 n} cn = cn \log_2 n = \Theta(n \log n) $$
+
+This is also formally proven by Case 2 of the **Master Theorem**, as $f(n) = \Theta(n)$ matches $n^{\log_b a} = n^{\log_2 2} = n^1$.
+
+---
+
 ## Complexity Analysis
 
 | Case | Time Complexity | Explanation |

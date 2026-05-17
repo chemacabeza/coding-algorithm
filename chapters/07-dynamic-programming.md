@@ -51,6 +51,31 @@ Items: Guitar (1kg, $1500), Stereo (4kg, $3000), Laptop (3kg, $2000). Capacity: 
 
 ---
 
+## Mathematical Foundation
+
+Dynamic Programming relies on the mathematical principle of **optimal substructure**—an optimal solution to a problem contains optimal solutions to its subproblems.
+
+For the 0/1 Knapsack problem, let $dp[i][w]$ represent the maximum value that can be obtained using a subset of the first $i$ items, with a maximum weight capacity of $w$.
+
+Let the items be defined by their weights $w_i$ and values $v_i$.
+
+**Bellman Equation / Recurrence Relation:**
+The state transition can be mathematically defined as:
+
+$$
+dp[i][w] = \begin{cases}
+dp[i-1][w] & \text{if } w_i > w \\
+\max(dp[i-1][w], v_i + dp[i-1][w-w_i]) & \text{if } w_i \le w
+\end{cases}
+$$
+
+1. **Case 1 ($w_i > w$):** The $i$-th item is heavier than the current capacity $w$, so it cannot be included. The maximum value remains the same as without the item.
+2. **Case 2 ($w_i \le w$):** We must choose the maximum between:
+   - Not including the $i$-th item: $dp[i-1][w]$
+   - Including the $i$-th item: The item's value $v_i$ plus the optimal solution for the remaining capacity $dp[i-1][w-w_i]$.
+
+---
+
 ## Complexity Analysis
 
 | Metric | Complexity | Explanation |

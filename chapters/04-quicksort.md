@@ -54,6 +54,31 @@ Final:  [10, 30, 40, 50, 70, 80, 90] ✅
 
 ---
 
+## Mathematical Foundation
+
+Quicksort's mathematical behavior is highly dependent on the pivot selection. We analyze it using recurrence relations and expected values.
+
+**Worst-Case Recurrence:**
+If the partition is maximally unbalanced (e.g., partitioning $n$ elements into $n-1$ and $0$ elements), the recurrence is:
+$$ T(n) = T(n-1) + T(0) + \Theta(n) $$
+Expanding this arithmetic series yields:
+$$ T(n) = \sum_{k=1}^n \Theta(k) = \Theta(n^2) $$
+
+**Best-Case Recurrence:**
+If the partition splits the array perfectly in half every time:
+$$ T(n) = 2T(n/2) + \Theta(n) $$
+By the Master Theorem, this results in $T(n) = \Theta(n \log n)$.
+
+**Expected (Average) Case Analysis:**
+For a randomly chosen pivot, any element $x_i$ has an equal probability of $1/n$ of being chosen. The expected time $E[T(n)]$ is:
+$$ E[T(n)] = \frac{1}{n} \sum_{i=1}^n \left( E[T(i-1)] + E[T(n-i)] \right) + \Theta(n) $$
+
+Through algebraic simplification and continuous approximation via integrals, the expected number of comparisons $C(n)$ can be shown to be closely related to the Harmonic number $H_n$:
+$$ C(n) \approx 2n \ln n \approx 1.39n \log_2 n $$
+This proves that the average case is tightly bounded by $O(n \log n)$, with a very small hidden constant factor, making it practically faster than Merge Sort.
+
+---
+
 ## Complexity Analysis
 
 | Case | Time Complexity | Explanation |

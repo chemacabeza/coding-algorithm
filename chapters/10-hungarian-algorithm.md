@@ -65,6 +65,26 @@ Assign 3 workers to 3 jobs with cost matrix:
 
 ---
 
+## Mathematical Foundation
+
+The Hungarian Algorithm is built upon **Kőnig's Theorem** and operations on bipartite graphs.
+
+Let $C$ be an $n \times n$ cost matrix representing a bipartite graph $G = (U, V, E)$ where we want to find a perfect matching of minimum weight.
+The algorithm relies on the fact that if we add or subtract a constant from every element of a row or column of the cost matrix, the optimal assignment remains unchanged.
+
+Let $u_i$ be potentials for the workers and $v_j$ be potentials for the jobs. The reduced cost matrix $C'$ is defined mathematically as:
+$$ C'_{i,j} = C_{i,j} - u_i - v_j $$
+
+**Equality Subgraph:**
+The algorithm searches for a perfect matching using only edges where the reduced cost is exactly $0$:
+$$ E_{eq} = \{ (i, j) \in E \mid C_{i,j} - u_i - v_j = 0 \} $$
+
+**Kőnig's Theorem Application:**
+If a perfect matching cannot be found in the equality subgraph, the maximum cardinality of a matching is equal to the minimum number of lines (rows and columns) required to cover all zeros in the matrix.
+The algorithm increments/decrements the potentials $u_i$ and $v_j$ based on the minimum uncovered value $\delta$, continuously modifying $C'$ until a perfect matching $M$ where $|M| = n$ is found in the equality subgraph.
+
+---
+
 ## Complexity Analysis
 
 | Metric | Complexity |

@@ -91,6 +91,29 @@ Let's use a bit array of size `m = 10` and `k = 2` hash functions ($h_1$ and $h_
 
 ---
 
+## Mathematical Foundation
+
+### False Positive Probability and Optimal Parameters
+
+The false positive rate ($p$) depends on the array size ($m$), the number of inserted elements ($n$), and the number of hash functions ($k$).
+
+Under the assumption that hash functions are perfectly uniform, the probability that a specific bit is not set to $1$ by a single hash function during the insertion of a single element is $1 - \frac{1}{m}$.
+The probability that it is not set after $k$ hash functions over $n$ elements is:
+$$ \left(1 - \frac{1}{m}\right)^{kn} \approx e^{-kn/m} $$
+
+Therefore, the probability of a false positive (i.e., querying an element and finding all $k$ bits already set by other elements) is:
+$$ p = \left( 1 - \left(1 - \frac{1}{m}\right)^{kn} \right)^k \approx (1 - e^{-kn/m})^k $$
+
+To minimize false positives for a given $m$ and $n$, the optimal number of hash functions is found by taking the derivative with respect to $k$:
+$$ k = \frac{m}{n} \ln 2 \approx 0.693 \frac{m}{n} $$
+
+To achieve a desired false positive probability $p$ for $n$ elements, the required size of the bit array is:
+$$ m = -\frac{n \ln p}{(\ln 2)^2} $$
+
+> **Note**: Fast, non-cryptographic hash functions like **MurmurHash** are heavily recommended to maintain high throughput in Bloom filters.
+
+---
+
 ## Complexity Analysis
 
 | Metric | Complexity | Explanation |
@@ -98,18 +121,6 @@ Let's use a bit array of size `m = 10` and `k = 2` hash functions ($h_1$ and $h_
 | **Insertion Time** | O(k) | Hash the element $k$ times and set $k$ bits. Independent of the number of elements in the filter. |
 | **Query Time** | O(k) | Hash the element $k$ times and read $k$ bits. |
 | **Space** | O(m) | Requires a fixed-size array of $m$ bits. Significantly smaller than storing actual elements. |
-
-### False Positive Probability and Optimal Parameters
-
-The false positive rate ($p$) depends on the array size ($m$), the number of inserted elements ($n$), and the number of hash functions ($k$).
-
-To minimize false positives for a given $m$ and $n$, the optimal number of hash functions is:
-$$k = \frac{m}{n} \ln 2 \approx 0.693 \frac{m}{n}$$
-
-To achieve a desired false positive probability $p$ for $n$ elements, the required size of the bit array is:
-$$m = -\frac{n \ln p}{(\ln 2)^2}$$
-
-> **Note**: Fast, non-cryptographic hash functions like **MurmurHash** are heavily recommended to maintain high throughput in Bloom filters.
 
 ---
 

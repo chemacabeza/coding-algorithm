@@ -47,6 +47,25 @@ DFS uses a **stack** (or recursion, which implicitly uses the call stack):
 
 ---
 
+## Mathematical Foundation
+
+DFS structures a graph $G=(V,E)$ into a set of disjoint trees (a DFS forest). The mathematical properties of DFS are closely related to the discovery and finish times of each vertex.
+
+Let $d[v]$ be the timestamp when vertex $v$ is first discovered (colored gray), and $f[v]$ be the timestamp when the search finishes examining $v$'s adjacency list (colored black).
+
+**Parenthesis Theorem:**
+In any DFS of a graph, for any two vertices $u$ and $v$, exactly one of the following three conditions holds:
+1. The intervals $[d[u], f[u]]$ and $[d[v], f[v]]$ are entirely disjoint, and neither $u$ nor $v$ is a descendant of the other.
+2. $[d[u], f[u]]$ is contained entirely within $[d[v], f[v]]$, and $u$ is a descendant of $v$.
+3. $[d[v], f[v]]$ is contained entirely within $[d[u], f[u]]$, and $v$ is a descendant of $u$.
+
+**White-Path Theorem:**
+In a DFS forest of a graph, vertex $v$ is a descendant of vertex $u$ if and only if at the time $d[u]$ that the search discovers $u$, there is a path from $u$ to $v$ consisting entirely of white (undiscovered) vertices.
+
+These properties are mathematically foundational for algorithms like Topological Sort and finding Strongly Connected Components.
+
+---
+
 ## Complexity Analysis
 
 | Metric | Complexity |

@@ -76,6 +76,28 @@ With **K=3**: 2 Oranges, 1 Grapefruit → ✅ **Classified as Orange!**
 
 ---
 
+## Mathematical Foundation
+
+The fundamental mathematical mechanism of K-Nearest Neighbors relies on computing the distance between vectors in an $n$-dimensional feature space.
+
+Let $p = (p_1, p_2, \dots, p_n)$ and $q = (q_1, q_2, \dots, q_n)$ be two data points.
+KNN assigns the class of $q$ based on the majority vote of the $k$ points $p$ that minimize a specific distance metric $d(p, q)$.
+
+**Distance Metrics:**
+1. **Euclidean Distance ($L_2$ Norm):** The straight-line distance, most common for continuous variables.
+   $$ d(p, q) = \sqrt{\sum_{i=1}^n (p_i - q_i)^2} $$
+
+2. **Manhattan Distance ($L_1$ Norm):** The sum of absolute differences across dimensions, useful for grid-based data or when dealing with high dimensionality.
+   $$ d(p, q) = \sum_{i=1}^n |p_i - q_i| $$
+
+3. **Minkowski Distance ($L_p$ Norm):** A generalization of both Euclidean ($p=2$) and Manhattan ($p=1$).
+   $$ d(p, q) = \left( \sum_{i=1}^n |p_i - q_i|^p \right)^{1/p} $$
+
+**Voronoi Tessellations:**
+Conceptually, if $k=1$, KNN partitions the feature space into a **Voronoi diagram**. Every region in the space is assigned to the class of the closest single training point.
+
+---
+
 ## Complexity Analysis
 
 | Metric | Complexity | Explanation |

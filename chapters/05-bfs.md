@@ -61,6 +61,22 @@ D → [F, G]
 
 ---
 
+## Mathematical Foundation
+
+Breadth-First Search systematically explores the edges of a graph $G = (V, E)$ to discover every vertex that is reachable from a source vertex $s$.
+
+**Shortest Path Property:**
+BFS computes the shortest path distance (measured in number of edges) from the source vertex $s$ to each reachable vertex. Let $\delta(s, v)$ denote the shortest path distance. 
+The algorithm ensures the following invariant: if a vertex $v$ is discovered by traversing an edge from vertex $u$, then:
+$$ d(s, v) \le d(s, u) + 1 $$
+
+Since BFS visits vertices layer by layer, it partitions the vertex set into subsets $L_0, L_1, \dots, L_k$ where:
+$$ L_i = \{ v \in V \mid \delta(s, v) = i \} $$
+
+This guarantees that when a vertex is dequeued, it has been reached via the shortest possible unweighted path.
+
+---
+
 ## Complexity Analysis
 
 | Metric | Complexity | Explanation |

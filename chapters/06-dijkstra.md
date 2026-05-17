@@ -36,6 +36,25 @@ Dijkstra's algorithm finds the **shortest path** in a weighted graph with **non-
 
 ---
 
+## Mathematical Foundation
+
+Dijkstra's algorithm relies on the principle of **edge relaxation** to find the shortest path in a weighted graph $G = (V, E)$ with a weight function $w: E \to \mathbb{R}^{\ge 0}$.
+
+Let $d(v)$ be the current upper bound on the weight of the shortest path from the source $s$ to $v$. Initially, $d(s) = 0$ and $d(v) = \infty$ for all other vertices.
+
+**Edge Relaxation:**
+When evaluating an edge $(u, v)$, the algorithm checks if the path to $v$ can be shortened by going through $u$:
+$$ \text{if } d(v) > d(u) + w(u, v) \text{ then } d(v) = d(u) + w(u, v) $$
+
+**Correctness Proof (Triangle Inequality):**
+The algorithm maintains a set $S$ of vertices whose final shortest-path weights from $s$ have been determined. At each step, it selects the vertex $u \in V - S$ with the minimum shortest-path estimate $d(u)$.
+Because edge weights are strictly non-negative ($w(u, v) \ge 0$), no shorter path to $u$ can be found later by traveling through other unvisited vertices. 
+Therefore, when $u$ is added to $S$:
+$$ d(u) = \delta(s, u) $$
+Where $\delta(s, u)$ is the true minimum theoretical distance.
+
+---
+
 ## Complexity Analysis
 
 | Implementation | Time | Space |

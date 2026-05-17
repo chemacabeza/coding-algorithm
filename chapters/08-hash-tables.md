@@ -41,6 +41,27 @@ A hash table (also called hash map or dictionary) is a data structure that maps 
 
 ---
 
+## Mathematical Foundation
+
+The performance of a Hash Table mathematically depends on its **load factor** ($\alpha$) and the properties of its hash function.
+
+Let $n$ be the number of keys stored, and $m$ be the number of available slots (buckets).
+The load factor is defined as:
+$$ \alpha = \frac{n}{m} $$
+
+**Universal Hashing and Collision Probability:**
+A good hash function $h(k)$ distributes keys uniformly across the $m$ slots. Under the assumption of simple uniform hashing, any key is equally likely to hash into any of the $m$ slots, independently of other keys.
+The probability of a collision between two distinct keys $k_1$ and $k_2$ is:
+$$ \Pr[h(k_1) = h(k_2)] = \frac{1}{m} $$
+
+**Expected Chain Length:**
+If collisions are resolved using chaining (linked lists), the expected length of a chain at any given slot is equal to the load factor $\alpha$.
+Therefore, an unsuccessful search takes expected time:
+$$ \Theta(1 + \alpha) $$
+Where the $1$ accounts for calculating the hash, and $\alpha$ accounts for traversing the chain. If $m$ is kept proportional to $n$ (so $\alpha \approx 1$), all operations run in $O(1)$ expected time.
+
+---
+
 ## Complexity Analysis
 
 | Operation | Average | Worst Case |

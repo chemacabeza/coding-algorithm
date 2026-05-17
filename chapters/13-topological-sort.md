@@ -77,6 +77,27 @@ CS104 → CS103
 
 ---
 
+## Mathematical Foundation
+
+Topological sort is mathematically defined over a **Directed Acyclic Graph (DAG)** $G=(V, E)$. 
+
+A topological sort is a linear ordering of vertices such that for every directed edge $(u, v) \in E$, vertex $u$ comes before $v$ in the ordering.
+If the graph contains a directed cycle, no linear ordering is possible, because there would exist a path from a vertex to itself, requiring it to be scheduled both before and after itself.
+
+**DFS Finish Time Property:**
+In the DFS-based approach, let $f[u]$ be the finish time of vertex $u$. The correctness of topological sort relies on the following lemma:
+> *For any directed edge $(u,v)$ in a DAG, $f[v] < f[u]$.*
+
+**Proof sketch:**
+When edge $(u,v)$ is explored during the DFS visit of $u$:
+1. If $v$ is gray (currently being visited), it means there is a back edge, which contradicts the assumption that $G$ is a DAG.
+2. If $v$ is white (unvisited), it becomes a descendant of $u$. The DFS will completely finish exploring $v$ (and its descendants) before returning to finish $u$. Thus $f[v] < f[u]$.
+3. If $v$ is black (already finished), then its finish time $f[v]$ was already set, and $u$ is currently being explored. Thus $f[v] < f[u]$ trivially.
+
+Because $f[u] > f[v]$ for all edges $(u,v)$, ordering vertices by descending finish time mathematically guarantees a valid topological sort.
+
+---
+
 ## Complexity Analysis
 
 | Metric | Complexity | Explanation |

@@ -46,6 +46,26 @@ Sorting `[64, 25, 12, 22, 11]`:
 
 ---
 
+## Mathematical Foundation
+
+Selection sort performs a strictly deterministic number of comparisons regardless of the initial ordering of the array. 
+
+During the $i$-th iteration (where $i$ ranges from $1$ to $n-1$), the algorithm must scan the remaining $n - i$ elements to find the minimum.
+
+The total number of comparisons $C(n)$ forms an arithmetic progression:
+$$ C(n) = (n-1) + (n-2) + \dots + 2 + 1 $$
+
+Using the formula for the sum of the first $k$ integers ($S = \frac{k(k+1)}{2}$) where $k = n-1$:
+$$ C(n) = \sum_{i=1}^{n-1} i = \frac{(n-1)n}{2} = \frac{n^2 - n}{2} $$
+
+Because the $n^2$ term dominates as $n$ grows, the mathematical time complexity is strictly bounded by:
+$$ C(n) = \Theta(n^2) $$
+
+**Swaps:**
+Unlike comparisons, the number of swaps is bounded by $O(n)$. Specifically, there is at most $1$ swap per outer loop iteration, leading to exactly $n-1$ swaps in the worst case.
+
+---
+
 ## Complexity Analysis
 
 | Case | Time Complexity | Explanation |

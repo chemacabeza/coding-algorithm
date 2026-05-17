@@ -56,6 +56,25 @@ Only **3 steps** instead of 5 (linear search would need 5 comparisons).
 
 ---
 
+## Mathematical Foundation
+
+Binary search operates on the divide-and-conquer paradigm. The mathematical performance is defined by how the search space $N$ shrinks at each step.
+
+At step $k$, the number of remaining elements is approximately $\frac{N}{2^k}$.
+The algorithm terminates when the search space is reduced to $1$:
+$$ \frac{N}{2^k} = 1 \implies N = 2^k \implies k = \log_2 N $$
+
+**Recurrence Relation:**
+The time complexity can be expressed as a recurrence relation:
+$$ T(n) = T(n/2) + \Theta(1) $$
+
+According to the **Master Theorem** ($T(n) = aT(n/b) + f(n)$), where $a=1, b=2,$ and $f(n) = \Theta(1)$:
+Since $f(n) = \Theta(n^{\log_b a}) = \Theta(n^{\log_2 1}) = \Theta(n^0) = \Theta(1)$, this falls into Case 2.
+Therefore, the closed-form solution is:
+$$ T(n) = \Theta(\log n) $$
+
+---
+
 ## Complexity Analysis
 
 | Case | Time Complexity | Explanation |
