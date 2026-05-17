@@ -381,5 +381,5 @@ int main() {
 
 ---
 
-| [← K-Nearest Neighbors](14-knn.md) | [Table of Contents →](../README.md) |
-|:-------------------------------------|-------------------------------------:|
+| [← K-Nearest Neighbors](14-knn.md) | [Next: Bloom Filters →](16-bloom-filter.md) |
+|:-------------------------------------|---------------------------------------:|

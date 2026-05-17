@@ -25,6 +25,7 @@ Built from insights across classic computer science texts including *Introductio
 | 13 | [**Topological Sort**](chapters/13-topological-sort.md) | Graph Ordering | O(V + E) |
 | 14 | [**K-Nearest Neighbors**](chapters/14-knn.md) | Machine Learning | O(n × d) |
 | 15 | [**A* Search**](chapters/15-a-star-search.md) | Pathfinding | O(E log V) |
+| 16 | [**Bloom Filters**](chapters/16-bloom-filter.md) | Probabilistic Data Structures | O(k) |
 
 ---
 
@@ -64,7 +65,13 @@ Built from insights across classic computer science texts including *Introductio
        │ Dynamic   │ │  Greedy   │ │  KNN    │
        │Programming│ │Algorithms │ │(Ch. 14) │
        │  (Ch. 7)  │ │ (Ch. 11)  │ └─────────┘
-       └───────────┘ └───────────┘
+       └───────────┘ └─────┬─────┘
+                           │
+                           ▼
+                    ┌─────────────┐
+                    │Bloom Filters│
+                    │  (Ch. 16)   │
+                    └─────────────┘
 ```
 
 ---
@@ -92,6 +99,7 @@ These chapters synthesize content from:
 | *Cracking the Coding Interview* | Gayle Laakmann McDowell | Interview-oriented problems |
 | *Advanced Algorithms and Data Structures* | Marcello La Rocca | Advanced topics, pathfinding |
 | *Algorithms and Data Structures for Massive Datasets* | Medjedovic, Tahirovic | Scalability patterns |
+| *Bloom Filter: A Data Structure...* | Patgiri, Nayak | Bloom filters, big data applications |
 | Hungarian Algorithm Papers | Various | Assignment problem specifics |
 
 ---
