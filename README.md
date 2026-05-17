@@ -20,6 +20,11 @@ Built from insights across classic computer science texts including *Introductio
 | 8 | [**Hash Tables**](chapters/08-hash-tables.md) | Data Structures | O(1) avg |
 | 9 | [**Depth-First Search**](chapters/09-dfs.md) | Graph Traversal | O(V + E) |
 | 10 | [**Hungarian Algorithm**](chapters/10-hungarian-algorithm.md) | Assignment / Matching | O(n³) |
+| 11 | [**Greedy Algorithms**](chapters/11-greedy-algorithms.md) | Optimization Strategy | O(n log n) |
+| 12 | [**Heapsort**](chapters/12-heapsort.md) | Sorting | O(n log n) |
+| 13 | [**Topological Sort**](chapters/13-topological-sort.md) | Graph Ordering | O(V + E) |
+| 14 | [**K-Nearest Neighbors**](chapters/14-knn.md) | Machine Learning | O(n × d) |
+| 15 | [**A* Search**](chapters/15-a-star-search.md) | Pathfinding | O(E log V) |
 
 ---
 
@@ -43,15 +48,23 @@ Built from insights across classic computer science texts including *Introductio
 ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
 │Merge Sort│  │ Quicksort│  │   DFS    │  │ Dijkstra │
 │ (Ch. 3)  │  │  (Ch. 4) │  │ (Ch. 9)  │  │ (Ch. 6)  │
-└──────────┘  └──────────┘  └──────────┘  └─────┬────┘
-                                                 │
-                                          ┌──────┴───────┐
-                                          ▼              ▼
-                                   ┌───────────┐  ┌───────────┐
-                                   │ Dynamic   │  │ Hungarian │
-                                   │Programming│  │ Algorithm │
-                                   │  (Ch. 7)  │  │ (Ch. 10)  │
-                                   └───────────┘  └───────────┘
+└─────┬────┘  └──────────┘  └─────┬────┘  └─────┬────┘
+      │                           │              │
+      ▼                    ┌──────┴──────┐ ┌─────┴─────┐
+┌──────────┐               ▼             ▼ ▼           ▼
+│ Heapsort │        ┌───────────┐  ┌───────────┐ ┌──────────┐
+│ (Ch. 12) │        │Topological│  │ A* Search │ │ Hungarian│
+└──────────┘        │   Sort    │  │ (Ch. 15)  │ │ Algorithm│
+                    │ (Ch. 13)  │  └───────────┘ │ (Ch. 10) │
+                    └───────────┘                └──────────┘
+                           │
+              ┌────────────┼────────────┐
+              ▼            ▼            ▼
+       ┌───────────┐ ┌───────────┐ ┌─────────┐
+       │ Dynamic   │ │  Greedy   │ │  KNN    │
+       │Programming│ │Algorithms │ │(Ch. 14) │
+       │  (Ch. 7)  │ │ (Ch. 11)  │ └─────────┘
+       └───────────┘ └───────────┘
 ```
 
 ---
@@ -77,6 +90,8 @@ These chapters synthesize content from:
 | *The Algorithm Design Manual* | Steven S. Skiena | Practical applications, war stories |
 | *A Common-Sense Guide to DSA* | Jay Wengrow | Beginner-friendly explanations |
 | *Cracking the Coding Interview* | Gayle Laakmann McDowell | Interview-oriented problems |
+| *Advanced Algorithms and Data Structures* | Marcello La Rocca | Advanced topics, pathfinding |
+| *Algorithms and Data Structures for Massive Datasets* | Medjedovic, Tahirovic | Scalability patterns |
 | Hungarian Algorithm Papers | Various | Assignment problem specifics |
 
 ---
