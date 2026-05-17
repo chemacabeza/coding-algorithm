@@ -31,48 +31,9 @@ Built from insights across classic computer science texts including *Introductio
 
 ## 🗺️ Learning Path
 
-```
-                    ┌─────────────────┐
-                    │  Binary Search  │ ← Start here
-                    │    (Ch. 1)      │
-                    └────────┬────────┘
-                             │
-              ┌──────────────┼──────────────┐
-              ▼              ▼              ▼
-      ┌──────────────┐ ┌──────────┐ ┌──────────────┐
-      │Selection Sort│ │Hash Table│ │    BFS       │
-      │   (Ch. 2)    │ │ (Ch. 8)  │ │   (Ch. 5)    │
-      └──────┬───────┘ └──────────┘ └──────┬───────┘
-             │                              │
-      ┌──────┴───────┐              ┌──────┴───────┐
-      ▼              ▼              ▼              ▼
-┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
-│Merge Sort│  │ Quicksort│  │   DFS    │  │ Dijkstra │
-│ (Ch. 3)  │  │  (Ch. 4) │  │ (Ch. 9)  │  │ (Ch. 6)  │
-└─────┬────┘  └──────────┘  └─────┬────┘  └─────┬────┘
-      │                           │              │
-      ▼                    ┌──────┴──────┐ ┌─────┴─────┐
-┌──────────┐               ▼             ▼ ▼           ▼
-│ Heapsort │        ┌───────────┐  ┌───────────┐ ┌──────────┐
-│ (Ch. 12) │        │Topological│  │ A* Search │ │ Hungarian│
-└──────────┘        │   Sort    │  │ (Ch. 15)  │ │ Algorithm│
-                    │ (Ch. 13)  │  └───────────┘ │ (Ch. 10) │
-                    └───────────┘                └──────────┘
-                           │
-              ┌────────────┼────────────┐
-              ▼            ▼            ▼
-       ┌───────────┐ ┌───────────┐ ┌─────────┐
-       │ Dynamic   │ │  Greedy   │ │  KNN    │
-       │Programming│ │Algorithms │ │(Ch. 14) │
-       │  (Ch. 7)  │ │ (Ch. 11)  │ └─────────┘
-       └───────────┘ └─────┬─────┘
-                           │
-                           ▼
-                    ┌─────────────┐
-                    │Bloom Filters│
-                    │  (Ch. 16)   │
-                    └─────────────┘
-```
+<p align="center">
+  <img src="chapters/images/learning_path.png" alt="Algorithm Learning Path Flowchart" />
+</p>
 
 ---
 
